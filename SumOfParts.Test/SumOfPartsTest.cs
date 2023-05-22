@@ -1,3 +1,5 @@
+using SumOfParts.BL;
+
 namespace SumOfParts.Test
 {
     public class SumOfPartsTest
@@ -6,7 +8,7 @@ namespace SumOfParts.Test
         public void PartsSums_ZeroValueAtStart()
         {
             //arrange
-            ISumOfParts sumOf = new SumOfParts();
+            ISumOfParts sumOf = new SumOfTheParts();
 
             var input = new int[] { 0, 1, 3, 6, 10 };
 
@@ -23,7 +25,7 @@ namespace SumOfParts.Test
         public void PartsSums_LargeFigures()
         {
             //arrange
-            ISumOfParts sumOf = new SumOfParts();
+            ISumOfParts sumOf = new SumOfTheParts();
 
             var input = new int[] { 744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358 };
 
@@ -40,7 +42,7 @@ namespace SumOfParts.Test
         public void PartsSums_EmptyArray()
         {
             //arrange
-            ISumOfParts sumOf = new SumOfParts();
+            ISumOfParts sumOf = new SumOfTheParts();
 
             var input = new int[] { };
 
