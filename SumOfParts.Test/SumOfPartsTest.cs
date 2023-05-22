@@ -5,6 +5,23 @@ namespace SumOfParts.Test
     public class SumOfPartsTest
     {
         [Fact]
+        public void PartsSums_StraightForward()
+        {
+            //arrange
+            ISumOfParts sumOf = new SumOfTheParts();
+
+            var input = new int[] { 1, 2, 3, };
+
+            var expected = new int[] { 6, 5, 3, 0 };
+
+            //act
+            var actual = sumOf.PartsSums(input);
+
+            //assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void PartsSums_ZeroValueAtStart()
         {
             //arrange
