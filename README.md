@@ -22,3 +22,34 @@ ls = [744125, 935, 407, 454, 430, 90, 144, 6710213, 889, 810, 2579358]
 parts_sums(ls) -> [10037855, 9293730, 9292795, 9292388, 9291934, 9291504, 9291414, 9291270, 2581057, 2580168, 2579358, 0]
 Notes
 Take a look at performance: some lists have thousands of elements.
+
+----------------------------------------------
+solutions
+
+        int sum = source.Select(x => x).Sum();
+        var result = new List<int> { sum };
+        for(int i = 0; i < source.Length; i++) {  result.Add(sum-source[i]);  sum -= source[i];  }
+        return result.Select(x => x).ToArray();
+
+----------
+
+        int[] result = new int[ls.Length + 1];
+        foreach (int num in ls)
+            result[0] += num;
+        for (int a = 0, b = result[0]; a < ls.Length;)
+        {
+            b -= ls[a];
+            result[++a] = b;
+        }
+        return result;
+
+----------
+
+      int sum = ls.Sum();
+      int runningSum = 0;
+      return ls.Select(x => sum - (runningSum += x)).Prepend(sum).ToArray();
+
+----------
+
+      int sum = 0;
+      return ls.Select(x => sum += x).Prepend(0).ToArray().Select(x => sum - x).ToArray();
